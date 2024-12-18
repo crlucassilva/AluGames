@@ -27,6 +27,4 @@ class ConsumoApi {
 
         return meuInfoJogo
     }
-
-
 }
