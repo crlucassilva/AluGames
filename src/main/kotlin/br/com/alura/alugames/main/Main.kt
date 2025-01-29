@@ -3,6 +3,7 @@ package br.com.alura.alugames.main
 import br.com.alura.alugames.model.Gamer
 import br.com.alura.alugames.model.Jogo
 import br.com.alura.alugames.service.ConsumoApi
+import transformarEmIdade
 import java.util.*
 
 fun main() {
@@ -10,6 +11,7 @@ fun main() {
     val gamer = Gamer.criarGamer(sc)
     println("Cadastro Concluído com Sucesso! Dados do Gamer:")
     println(gamer)
+    println("Idade do Gamer: " + gamer.dataNascimento?.transformarEmIdade())
 
     do {
         println("Digite um código de jogo para buscar:")
