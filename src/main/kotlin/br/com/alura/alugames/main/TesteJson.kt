@@ -6,6 +6,8 @@ fun main() {
     val consumo = ConsumoApi()
     val listaGamers = consumo.buscaGamers()
     val jogoApi = consumo.buscaJogo("100")
+    val listaJogos = consumo.buscaJogosJson()
     println(listaGamers)
     println(jogoApi)
+    println(listaJogos)
 }
