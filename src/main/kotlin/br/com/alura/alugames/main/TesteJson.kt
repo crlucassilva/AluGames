@@ -3,6 +3,8 @@ package br.com.alura.alugames.main
 import br.com.alura.alugames.model.Periodo
 import br.com.alura.alugames.model.PlanoAssinatura
 import br.com.alura.alugames.service.ConsumoApi
+import com.google.gson.GsonBuilder
+import java.io.File
 import java.time.LocalDate
 
 fun main() {
@@ -42,12 +44,31 @@ fun main() {
     gamerCamila.alugaJogo(jogoTheLast, periodo3)
     gamerCamila.alugaJogo(jogoTheLast, periodo3)
 
-    println(gamerCamila.jogosAlugados)
+//    println(gamerCamila.jogosAlugados)
 
     gamerCamila.recomendar(7)
     gamerCamila.recomendar(10)
     gamerCamila.recomendar(8)
 
-    print(gamerCamila.media)
-    print(gamerCamila.alugaJogo(jogoResidentVillage, periodo1))
+    println(gamerCamila.media)
+    println(gamerCamila.alugaJogo(jogoResidentVillage, periodo1))
+
+    gamerCamila.recomendarJogo(jogoSpider, 11)
+    gamerCamila.recomendarJogo(jogoResidentVillage, 7)
+
+    gamerCaroline.recomendarJogo(jogoSpider, 9)
+    gamerCaroline.recomendarJogo(jogoResidentVillage, 10)
+
+//    println("---------------------Recomendações da Caroline")
+//    println(gamerCaroline.jogosRecomendados)
+//    println("---------------------Recomendações da Camila")
+//    println(gamerCamila.jogosRecomendados)
+
+    val gson = GsonBuilder().excludeFieldsWithoutExposeAnnotation().create()
+    val serializacao = gson.toJson(gamerCaroline.jogosRecomendados)
+    println(serializacao)
+
+    val arquivo = File("jogosRecomendados-${gamerCaroline.nome}.json")
+    arquivo.writeText(serializacao)
+    println(arquivo.absolutePath)
 }

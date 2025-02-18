@@ -1,5 +1,6 @@
 package br.com.alura.alugames.model
 
+import formatoComDuasCasasDecimais
 import java.lang.IllegalArgumentException
 import java.util.Scanner
 import kotlin.random.Random
@@ -19,17 +20,24 @@ data class Gamer(var nome: String, var email: String): Recomendavel {
     val jogosAlugados = mutableListOf<Aluguel>()
     var plano: Plano = PlanoAvulso("BRONZE")
     private val listaNotas = mutableListOf<Int>()
+    val jogosRecomendados = mutableListOf<Jogo>()
 
     override val media: Double
-        get() = listaNotas.average()
+        get() = listaNotas.average().formatoComDuasCasasDecimais()
 
     override fun recomendar(nota: Int) {
         if (nota < 1 || nota > 10) {
-            print("Nota inválida. Insira uma nota entre 1 e 10")
+            println("Nota inválida. Insira uma nota entre 1 e 10")
         } else {
             listaNotas.add(nota)
         }
+    }
 
+    fun recomendarJogo(jogo: Jogo, nota: Int) {
+        if (nota in 0..10) {
+            jogo.recomendar(nota)
+            jogosRecomendados.add(jogo)
+        }
     }
 
     constructor(nome: String, email: String, dataNascimento:String, usuario:String): this(nome, email) {
@@ -100,5 +108,3 @@ data class Gamer(var nome: String, var email: String): Recomendavel {
         }
     }
 }
-
-
