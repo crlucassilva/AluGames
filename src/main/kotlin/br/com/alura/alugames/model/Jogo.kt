@@ -12,7 +12,7 @@ data class Jogo(@Expose val titulo: String,
     var id = 0
     private var listaNotas = mutableListOf<Int>()
 
-    constructor(titulo: String, capa: String, preco: Double, descricao: String, id: Int = 0): this(titulo, capa) {
+    constructor(titulo: String, capa: String, preco: Double, descricao: String?, id: Int = 0): this(titulo, capa) {
         this.preco = BigDecimal(preco).setScale(2, RoundingMode.HALF_EVEN)
         this.descricao = descricao
         this.id = id
