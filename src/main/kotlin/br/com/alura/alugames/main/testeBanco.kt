@@ -15,15 +15,25 @@ fun main() {
 
     val manager = Banco.getEntityManager()
     val jogoDAO = JogosDAO(manager)
-    jogoDAO.adicionar(jogo2)
+//    jogoDAO.adicionar(jogo2)
+
+//    val jogoRecuperado = jogoDAO.recuperarPeloId(5)
+//    println(jogoRecuperado)
+
+//    jogoDAO.apagar(5)
 
     val listaJogos: List<Jogo> = jogoDAO.getLista()
     println(listaJogos)
 
     val gamerDao = GamerDAO(manager)
-    gamerDao.adicionaGamer(gamer)
+//    gamerDao.adicionaGamer(gamer)
 
-    val listaGamer: List<Gamer> = gamerDao.getGamers()
+//    val gamerRecuperado = gamerDao.recuperarPeloId(2)
+//    println(2)
+
+//    gamerDao.apagar(2)
+
+    val listaGamer: List<Gamer> = gamerDao.getLista()
     println(listaGamer)
 
     manager.close()
