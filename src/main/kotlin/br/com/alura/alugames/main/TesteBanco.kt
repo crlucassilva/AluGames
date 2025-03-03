@@ -1,7 +1,7 @@
 package br.com.alura.alugames.main
 
 import br.com.alura.alugames.data.Banco
-import br.com.alura.alugames.data.GamerDAO
+import br.com.alura.alugames.data.GamersDAO
 import br.com.alura.alugames.data.JogosDAO
 import br.com.alura.alugames.model.Gamer
 import br.com.alura.alugames.model.Jogo
@@ -25,7 +25,7 @@ fun main() {
     val listaJogos: List<Jogo> = jogoDAO.getLista()
     println(listaJogos)
 
-    val gamerDao = GamerDAO(manager)
+    val gamersDao = GamersDAO(manager)
 //    gamerDao.adicionaGamer(gamer)
 
 //    val gamerRecuperado = gamerDao.recuperarPeloId(2)
@@ -33,7 +33,7 @@ fun main() {
 
 //    gamerDao.apagar(2)
 
-    val listaGamer: List<Gamer> = gamerDao.getLista()
+    val listaGamer: List<Gamer> = gamersDao.getLista()
     println(listaGamer)
 
     manager.close()

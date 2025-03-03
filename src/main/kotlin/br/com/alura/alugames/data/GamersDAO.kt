@@ -5,7 +5,7 @@ import br.com.alura.alugames.util.toEntity
 import br.com.alura.alugames.util.toModel
 import javax.persistence.EntityManager
 
-class GamerDAO(manager: EntityManager): DAO<Gamer, GamerEntity>(manager, GamerEntity::class.java) {
+class GamersDAO(manager: EntityManager): DAO<Gamer, GamerEntity>(manager, GamerEntity::class.java) {
     override fun toEntity(objeto: Gamer): GamerEntity {
         return objeto.toEntity()
     }
