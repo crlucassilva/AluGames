@@ -1,5 +1,7 @@
 package br.com.alura.alugames.data
 
+import PlanoAvulsoEntity
+import PlanoEntity
 import javax.persistence.*
 
 @Entity
@@ -11,5 +13,7 @@ class GamerEntity(
     val usuario: String? = null,
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    val id: Int = 0) {
+    val id: Int = 0,
+    @ManyToOne
+    val plano: PlanoEntity = PlanoAvulsoEntity()) {
 }
